@@ -1,0 +1,1 @@
+Template2 :Interval/Ordinal vs Nominal. data “Is there a difference in the mean of  StarRating among different Styles of cuisine”.
