@@ -44,6 +44,9 @@ The downloaded binary packages are in
 ℹ Use the conflicted package (<http://conflicted.r-lib.org/>) to force all conflicts to become errors
 > getwd()
 [1] "C:/Users/AL-MAKKAH/Documents"
+
+
+# Set the working directory and load the data file
 > df <- read_csv("top 240 restaurants recommanded in los angeles 2.csv")
 
 [1mindexing[0m [34mtop 240 restaurants recommanded in los angeles 2.csv[0m [] [32m2.15GB/s[0m, eta: [36m 0s[0m
@@ -68,6 +71,8 @@ date (2): CommentDate, Date
 5     1 2023-09-05  2023-09-17 GRANVILLE      Always a good … 8701 B…        4.4
 6     1 2023-09-04  2023-09-17 GRANVILLE      These five sta… 8701 B…        4.4
 # ℹ 3 more variables: NumberOfReviews <dbl>, Style <chr>, Price <chr>
+
+# Display the structure of the dataset
 > str(df)
 spc_tbl_ [2,381 × 10] (S3: spec_tbl_df/tbl_df/tbl/data.frame)
  $ Rank           : num [1:2381] 1 1 1 1 1 1 1 1 1 1 ...
@@ -94,6 +99,8 @@ spc_tbl_ [2,381 × 10] (S3: spec_tbl_df/tbl_df/tbl/data.frame)
   ..   Price = col_character()
   .. )
  - attr(*, "problems")=<externalptr> 
+
+ # Display the summary of the dataset to understand the data distribution
 > summary(df)
       Rank        CommentDate              Date            RestaurantName    
  Min.   :  1.0   Min.   :2011-12-07   Min.   :2023-09-17   Length:2381       
@@ -114,7 +121,8 @@ spc_tbl_ [2,381 × 10] (S3: spec_tbl_df/tbl_df/tbl/data.frame)
  Class :character   Class :character  
  Mode  :character   Mode  :character  
                                       
-                                      
+
+# Generate a boxplot to visualize Star Ratings by Style
  > boxplot(StarRating ~ Style, data=df, 
 +         main="Boxplot of StarRatings of  top 240 Restaurants in Los Angeles by Style", 
 +         xlab="Style (Independent Variable)", 
@@ -135,6 +143,8 @@ Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’
 > F_value <- summary(anova_result)[[1]][["F value"]][1]
 > F_value
 [1] 77.84825
+
+# Extract the p-value for Style from the ANOVA result
 > p_value <- summary(anova_result)[[1]]["Style", "Pr(>F)"]
 > p_value
 [1] 0
