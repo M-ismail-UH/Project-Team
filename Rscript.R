@@ -45,7 +45,10 @@ The downloaded binary packages are in
 > getwd()
 [1] "C:/Users/AL-MAKKAH/Documents"
 > df <- read_csv("top 240 restaurants recommanded in los angeles 2.csv")
-[1mindexing[0m [34mtop 240 restaurants recommanded in los angeles 2.csv[0m [] [32m2.15GB/s[0m, eta: [36m 0s[0m                                                                                                                   Rows: 2381 Columns: 10
+
+[1mindexing[0m [34mtop 240 restaurants recommanded in los angeles 2.csv[0m [] [32m2.15GB/s[0m, eta: [36m 0s[0m
+                                                                                                                   
+Rows: 2381 Columns: 10
 ── Column specification ────────────────────────────────────────────────────────
 Delimiter: ","
 chr  (5): RestaurantName, Comment, Address, Style, Price
@@ -112,8 +115,7 @@ spc_tbl_ [2,381 × 10] (S3: spec_tbl_df/tbl_df/tbl/data.frame)
  Mode  :character   Mode  :character  
                                       
                                       
-                                      
-> boxplot(StarRating ~ Style, data=df, 
+ > boxplot(StarRating ~ Style, data=df, 
 +         main="Boxplot of StarRatings of  top 240 Restaurants in Los Angeles by Style", 
 +         xlab="Style (Independent Variable)", 
 +         ylab="StarRating (Dependent Variable)", 
