@@ -7,7 +7,7 @@ R is free software and comes with ABSOLUTELY NO WARRANTY.
 You are welcome to redistribute it under certain conditions.
 Type 'license()' or 'licence()' for distribution details.
 
-  Natural language support but running in an English locale
+   Language support but running in an English locale
 
 R is a collaborative project with many contributors.
 Type 'contributors()' for more information and
@@ -124,11 +124,11 @@ spc_tbl_ [2,381 × 10] (S3: spec_tbl_df/tbl_df/tbl/data.frame)
 > save.image("C:\\Users\\AL-MAKKAH\\Pictures\\Rscript (Boxplot)")
 > local({fn<-choose.files(filters=Filters[c('R','txt','All'),],index=4)
 + file.show(fn,header=fn,title='')})
-> 
+>    
 > anova_result <- aov(StarRating ~ Style, data=df)
 > summary(anova_result)
-              Df Sum Sq Mean Sq F value Pr(>F)    
-Style        196 203.65  1.0390   77.85 <2e-16 ***
+            Df Sum Sq Mean Sq F value Pr(>F)    
+Style      196 203.65  1.0390   77.85 <2e-16 ***
 Residuals   2184  29.15  0.0133                   
 ---
 Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
