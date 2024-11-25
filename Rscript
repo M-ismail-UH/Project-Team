@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 
 R version 4.4.2 (2024-10-31 ucrt) -- "Pile of Leaves"
 Copyright (C) 2024 The R Foundation for Statistical Computing
@@ -137,3 +138,6 @@ Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’
 > p_value
 [1] 0
 > 
+=======
+
+>>>>>>> 0713454 (Create Rscript)
