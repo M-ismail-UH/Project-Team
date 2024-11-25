@@ -123,11 +123,11 @@ spc_tbl_ [2,381 × 10] (S3: spec_tbl_df/tbl_df/tbl/data.frame)
                                       
 
 # Generate a boxplot to visualize Star Ratings by Style
- > boxplot(StarRating ~ Style, data=df, 
+ > boxplot(StarRating ~ Style, data=df,, 
 +         main="Boxplot of StarRatings of  top 240 Restaurants in Los Angeles by Style", 
 +         xlab="Style (Independent Variable)", 
 +         ylab="StarRating (Dependent Variable)", 
-+         col=rainbow(length(unique(df$Style))))
++         col=rainbow(length(unique(df$Style)), start=0.2, end=0.8))
 > png("boxplot_star_rating_by_style.png")
 > save.image("C:\\Users\\AL-MAKKAH\\Pictures\\Rscript (Boxplot)")
 > local({fn<-choose.files(filters=Filters[c('R','txt','All'),],index=4)
