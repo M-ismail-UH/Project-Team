@@ -1,0 +1,141 @@
+
+R version 4.4.2 (2024-10-31 ucrt) -- "Pile of Leaves"
+Copyright (C) 2024 The R Foundation for Statistical Computing
+Platform: x86_64-w64-mingw32/x64
+
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under certain conditions.
+Type 'license()' or 'licence()' for distribution details.
+
+   Language support but running in an English locale
+
+R is a collaborative project with many contributors.
+Type 'contributors()' for more information and
+'citation()' on how to cite R or R packages in publications.
+
+Type 'demo()' for some demos, 'help()' for on-line help, or
+'help.start()' for an HTML browser interface to help.
+Type 'q()' to quit R.
+
+[Previously saved workspace restored]
+
+> install.packages("tidyverse") 
+Installing package into ‘C:/Users/AL-MAKKAH/AppData/Local/R/win-library/4.4’
+(as ‘lib’ is unspecified)
+--- Please select a CRAN mirror for use in this session ---
+trying URL 'https://cran.ma.imperial.ac.uk/bin/windows/contrib/4.4/tidyverse_2.0.0.zip'
+Content type 'application/zip' length 431635 bytes (421 KB)
+downloaded 421 KB
+
+package ‘tidyverse’ successfully unpacked and MD5 sums checked
+
+The downloaded binary packages are in
+        C:\Users\AL-MAKKAH\AppData\Local\Temp\RtmpO6z27N\downloaded_packages
+> library(tidyverse)
+── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
+✔ dplyr     1.1.4     ✔ readr     2.1.5
+✔ forcats   1.0.0     ✔ stringr   1.5.1
+✔ ggplot2   3.5.1     ✔ tibble    3.2.1
+✔ lubridate 1.9.3     ✔ tidyr     1.3.1
+✔ purrr     1.0.2     
+── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+✖ dplyr::filter() masks stats::filter()
+✖ dplyr::lag()    masks stats::lag()
+ℹ Use the conflicted package (<http://conflicted.r-lib.org/>) to force all conflicts to become errors
+> getwd()
+[1] "C:/Users/AL-MAKKAH/Documents"
+> df <- read_csv("top 240 restaurants recommanded in los angeles 2.csv")
+
+[1mindexing[0m [34mtop 240 restaurants recommanded in los angeles 2.csv[0m [] [32m2.15GB/s[0m, eta: [36m 0s[0m
+                                                                                                                   
+Rows: 2381 Columns: 10
+── Column specification ────────────────────────────────────────────────────────
+Delimiter: ","
+chr  (5): RestaurantName, Comment, Address, Style, Price
+dbl  (3): Rank, StarRating, NumberOfReviews
+date (2): CommentDate, Date
+
+ℹ Use `spec()` to retrieve the full column specification for this data.
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
+> head(df) 
+# A tibble: 6 × 10
+   Rank CommentDate Date       RestaurantName Comment         Address StarRating
+  <dbl> <date>      <date>     <chr>          <chr>           <chr>        <dbl>
+1     1 2023-09-16  2023-09-17 GRANVILLE      Great ambiance… 8701 B…        4.4
+2     1 2023-09-15  2023-09-17 GRANVILLE      Wrong wrong wr… 8701 B…        4.4
+3     1 2023-09-07  2023-09-17 GRANVILLE      Bad service!! … 8701 B…        4.4
+4     1 2023-09-06  2023-09-17 GRANVILLE      One of my abso… 8701 B…        4.4
+5     1 2023-09-05  2023-09-17 GRANVILLE      Always a good … 8701 B…        4.4
+6     1 2023-09-04  2023-09-17 GRANVILLE      These five sta… 8701 B…        4.4
+# ℹ 3 more variables: NumberOfReviews <dbl>, Style <chr>, Price <chr>
+> str(df)
+spc_tbl_ [2,381 × 10] (S3: spec_tbl_df/tbl_df/tbl/data.frame)
+ $ Rank           : num [1:2381] 1 1 1 1 1 1 1 1 1 1 ...
+ $ CommentDate    : Date[1:2381], format: "2023-09-16" "2023-09-15" ...
+ $ Date           : Date[1:2381], format: "2023-09-17" "2023-09-17" ...
+ $ RestaurantName : chr [1:2381] "GRANVILLE" "GRANVILLE" "GRANVILLE" "GRANVILLE" ...
+ $ Comment        : chr [1:2381] "Great ambiance indoors and attentive staff. Really great food. Right next to Cedars so lots of ambulance sirens"| __truncated__ "Wrong wrong wrong.   AIf you don't fit the Ty as they will escort you out.  Don't drink here." "Bad service!! The worst servers. Marcos the manager and the host on Thursday 9/7/2023 have been very rude and l"| __truncated__ "One of my absolute favorite places in WeHo for brunch. The atmosphere is sleek and inviting and the menu is hum"| __truncated__ ...
+ $ Address        : chr [1:2381] "8701 Beverly Blvd West Hollywood, CA 90048" "8701 Beverly Blvd West Hollywood, CA 90048" "8701 Beverly Blvd West Hollywood, CA 90048" "8701 Beverly Blvd West Hollywood, CA 90048" ...
+ $ StarRating     : num [1:2381] 4.4 4.4 4.4 4.4 4.4 4.4 4.4 4.4 4.4 4.4 ...
+ $ NumberOfReviews: num [1:2381] 2672 2672 2672 2672 2672 ...
+ $ Style          : chr [1:2381] "American (New), Cocktail Bars" "American (New), Cocktail Bars" "American (New), Cocktail Bars" "American (New), Cocktail Bars" ...
+ $ Price          : chr [1:2381] "$$" "$$" "$$" "$$" ...
+ - attr(*, "spec")=
+  .. cols(
+  ..   Rank = col_double(),
+  ..   CommentDate = col_date(format = ""),
+  ..   Date = col_date(format = ""),
+  ..   RestaurantName = col_character(),
+  ..   Comment = col_character(),
+  ..   Address = col_character(),
+  ..   StarRating = col_double(),
+  ..   NumberOfReviews = col_double(),
+  ..   Style = col_character(),
+  ..   Price = col_character()
+  .. )
+ - attr(*, "problems")=<externalptr> 
+> summary(df)
+      Rank        CommentDate              Date            RestaurantName    
+ Min.   :  1.0   Min.   :2011-12-07   Min.   :2023-09-17   Length:2381       
+ 1st Qu.: 61.0   1st Qu.:2023-08-18   1st Qu.:2023-09-17   Class :character  
+ Median :119.0   Median :2023-09-03   Median :2023-09-17   Mode  :character  
+ Mean   :120.2   Mean   :2023-08-08   Mean   :2023-09-17                     
+ 3rd Qu.:180.0   3rd Qu.:2023-09-10   3rd Qu.:2023-09-17                     
+ Max.   :240.0   Max.   :2023-09-17   Max.   :2023-09-17                     
+   Comment            Address            StarRating    NumberOfReviews
+ Length:2381        Length:2381        Min.   :3.500   Min.   :    2  
+ Class :character   Class :character   1st Qu.:4.100   1st Qu.:  129  
+ Mode  :character   Mode  :character   Median :4.300   Median :  518  
+                                       Mean   :4.305   Mean   : 1142  
+                                       3rd Qu.:4.500   3rd Qu.: 1623  
+                                       Max.   :5.000   Max.   :10020  
+    Style              Price          
+ Length:2381        Length:2381       
+ Class :character   Class :character  
+ Mode  :character   Mode  :character  
+                                      
+                                      
+ > boxplot(StarRating ~ Style, data=df, 
++         main="Boxplot of StarRatings of  top 240 Restaurants in Los Angeles by Style", 
++         xlab="Style (Independent Variable)", 
++         ylab="StarRating (Dependent Variable)", 
++         col=rainbow(length(unique(df$Style))))
+> png("boxplot_star_rating_by_style.png")
+> save.image("C:\\Users\\AL-MAKKAH\\Pictures\\Rscript (Boxplot)")
+> local({fn<-choose.files(filters=Filters[c('R','txt','All'),],index=4)
++ file.show(fn,header=fn,title='')})
+>    
+> anova_result <- aov(StarRating ~ Style, data=df)
+> summary(anova_result)
+            Df Sum Sq Mean Sq F value Pr(>F)    
+Style      196 203.65  1.0390   77.85 <2e-16 ***
+Residuals   2184  29.15  0.0133                   
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+> F_value <- summary(anova_result)[[1]][["F value"]][1]
+> F_value
+[1] 77.84825
+> p_value <- summary(anova_result)[[1]]["Style", "Pr(>F)"]
+> p_value
+[1] 0
+> 
